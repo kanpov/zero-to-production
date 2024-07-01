@@ -1,13 +1,9 @@
-use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
+use std::net::TcpListener;
 
-async fn health_check(request: HttpRequest) -> impl Responder {
-    HttpResponse::Ok()
-}
+use zero_to_production::get_app_server;
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
-    HttpServer::new(|| App::new().route("/health_check", web::get().to(health_check)))
-        .bind("127.0.0.1:8080")?
-        .run()
-        .await
+    let listener = TcpListener::bind("127.0.0.1:8000")?;
+    get_app_server(listener)?.await
 }

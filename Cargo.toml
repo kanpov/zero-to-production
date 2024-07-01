@@ -1,8 +1,16 @@
 [package]
-name = "zero-to-production"
+name = "zero_to_production"
 version = "0.1.0"
 edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "zero_to_production"
 
 [dependencies]
 tokio = { version = "1.38.0", features = ["macros", "rt-multi-thread"] }
 actix-web = "4.8.0"
+reqwest = "0.12.5"

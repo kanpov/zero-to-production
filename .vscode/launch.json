@@ -7,15 +7,34 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'zero-to-production'",
+            "name": "Debug unit tests in library 'zero_to_production'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=zero_to_production"
+                ],
+                "filter": {
+                    "name": "zero_to_production",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'zero_to_production'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=zero-to-production",
-                    "--package=zero-to-production"
+                    "--bin=zero_to_production",
+                    "--package=zero_to_production"
                 ],
                 "filter": {
-                    "name": "zero-to-production",
+                    "name": "zero_to_production",
                     "kind": "bin"
                 }
             },
@@ -25,17 +44,36 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'zero-to-production'",
+            "name": "Debug unit tests in executable 'zero_to_production'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=zero-to-production",
-                    "--package=zero-to-production"
+                    "--bin=zero_to_production",
+                    "--package=zero_to_production"
                 ],
                 "filter": {
-                    "name": "zero-to-production",
+                    "name": "zero_to_production",
                     "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'health_check'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=health_check",
+                    "--package=zero_to_production"
+                ],
+                "filter": {
+                    "name": "health_check",
+                    "kind": "test"
                 }
             },
             "args": [],

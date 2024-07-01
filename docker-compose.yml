@@ -1,0 +1,13 @@
+name: newsletter
+services:
+  newsletter-postgres:
+    container_name: newsletter-postgres
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=newsletter
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./.volumes/newsletter-postgres:/var/lib/postgresql/data

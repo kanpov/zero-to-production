@@ -14,3 +14,4 @@ name = "zero_to_production"
 tokio = { version = "1.38.0", features = ["macros", "rt-multi-thread"] }
 actix-web = "4.8.0"
 reqwest = "0.12.5"
+serde = { version = "1.0.203", features = ["derive"] }

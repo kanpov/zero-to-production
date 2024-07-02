@@ -1,8 +1,8 @@
 use crate::routes;
 use actix_web::{dev::Server, web, App, HttpServer};
 use sqlx::PgPool;
-use tracing_actix_web::TracingLogger;
 use std::net::TcpListener;
+use tracing_actix_web::TracingLogger;
 
 pub fn get_app_server(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Error> {
     let connection = web::Data::new(db_pool);
